@@ -1,0 +1,64 @@
+/* Traditional South Indian Mango Leaf Thoranam CSS */
+.thoranam-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.thoranam-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+}
+
+/* Gentle Breeze Sway Animations */
+@keyframes breezeSway {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(1.8deg) translateY(1.5px);
+  }
+  100% {
+    transform: rotate(-1.5deg) translateY(-1px);
+  }
+}
+
+@keyframes breezeSwaySlow {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-1.5deg) translateY(1px);
+  }
+  100% {
+    transform: rotate(1.4deg) translateY(-1.5px);
+  }
+}
+
+.breeze-sway {
+  animation: breezeSway 7s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+.breeze-sway-slow {
+  animation: breezeSwaySlow 9s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+/* Responsive Behavior for Mobile (360px - 480px) */
+@media (max-width: 480px) {
+  .thoranam-wrapper {
+    width: 94%;
+    padding-top: 6px;
+  }
+
+  .thoranam-svg {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+  }
+}

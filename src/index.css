@@ -1,0 +1,353 @@
+/* Custom CSS Reset & Indian Luxury Wedding Design System */
+:root {
+  --ivory: #fcf9f2;
+  --cream: #f4ede0;
+  --gold: #D6B978;
+  --champagne-gold: #D6B978;
+  --gold-light: #f5e9d3;
+  --gold-glow: #e2c98d;
+  --gold-border: #D6B978;
+  --dark-gold: #8f743b;
+  --maroon: #6e1a24;
+  --deep-maroon: #4a1017;
+  --royal-red: #8b1e2b;
+  --sage: #7d8462;
+  --text-dark: #2c221e;
+  --text-muted: #685950;
+  --white: #ffffff;
+  
+  --font-display: 'Cormorant Garamond', 'Didot', serif;
+  --font-heading: 'Cormorant Garamond', 'Bodoni Moda', serif;
+  --font-body: 'Libre Caslon Text', 'Lora', Georgia, serif;
+  --font-label: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Libre Caslon Text', serif;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+
+  --shadow-card: 0 18px 40px rgba(110, 26, 36, 0.09), 0 6px 18px rgba(0, 0, 0, 0.05);
+  --shadow-gold: 0 10px 30px rgba(214, 185, 120, 0.35);
+  --border-gold: 1px solid rgba(214, 185, 120, 0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: #16110f;
+  color: var(--text-dark);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--ivory);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(245, 233, 211, 0.6) 0%, transparent 70%),
+    radial-gradient(circle at 50% 100%, rgba(110, 26, 36, 0.05) 0%, transparent 60%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Outer Wrapper for Desktop Centering */
+.app-container {
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--ivory);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(214, 185, 120, 0.18) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(110, 26, 36, 0.18) 0%, transparent 40%),
+      linear-gradient(135deg, #140e0c 0%, #241a16 100%);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-gold);
+}
+
+/* Refined Champagne Gold Typography (#D6B978) for Accents */
+.gold-text, .gold-text-bright {
+  color: #D6B978 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #D6B978 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px;
+  text-shadow: none !important;
+}
+
+/* Rich Deep Burgundy / Wine Color (#7A1F3D) for Light Backgrounds */
+.bride-name, .groom-name, .person-name, .couple-joining-names {
+  color: #7A1F3D !important;
+  -webkit-text-fill-color: #7A1F3D !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.font-heading, .heading-cinzel {
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  line-height: 1.75;
+}
+
+.font-label {
+  font-family: var(--font-label);
+  letter-spacing: 0.34em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Reusable Indian Luxury Ornaments */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.ornament-divider .line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.ornament-divider .icon {
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+
+/* Section Header Badges */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #4a1017 0%, #6e1a24 100%);
+  color: #D6B978;
+  border: 1px solid var(--gold);
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(110, 26, 36, 0.2);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Decorative Card Framing */
+.invitation-card-border {
+  border: 1px solid var(--gold);
+  position: relative;
+  padding: 28px 20px;
+  background: var(--ivory);
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9), rgba(244, 237, 224, 0.45));
+  box-shadow: inset 0 0 20px rgba(214, 185, 120, 0.18), var(--shadow-card);
+  border-radius: 8px;
+}
+
+.invitation-card-border::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px dashed rgba(214, 185, 120, 0.6);
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* Corner Decorations for Cards */
+.corner-decor {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--gold);
+  border-style: solid;
+  pointer-events: none;
+}
+.corner-decor.top-left {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+.corner-decor.top-right {
+  top: 8px;
+  right: 8px;
+  border-width: 2px 2px 0 0;
+}
+.corner-decor.bottom-left {
+  bottom: 8px;
+  left: 8px;
+  border-width: 0 0 2px 2px;
+}
+.corner-decor.bottom-right {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Luxury Button Styling */
+.btn-gold {
+  background: linear-gradient(135deg, #b89752 0%, #D6B978 50%, #8f743b 100%);
+  color: #ffffff;
+  border: 1px solid #e6ce95;
+  padding: 13px 32px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(184, 151, 82, 0.35);
+  transition: all 0.35 ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(214, 185, 120, 0.55);
+}
+
+.btn-maroon {
+  background: linear-gradient(135deg, #4a1017 0%, #6e1a24 50%, #3d0c12 100%);
+  color: #D6B978;
+  border: 1px solid var(--gold);
+  padding: 12px 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(110, 26, 36, 0.35);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-maroon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(110, 26, 36, 0.6);
+  color: #ffffff;
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--dark-gold);
+  border: 1.5px solid var(--gold);
+  padding: 10px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(214, 185, 120, 0.12);
+  color: var(--maroon);
+  border-color: var(--maroon);
+}
+
+/* Keyframe Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(214, 185, 120, 0.35);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(214, 185, 120, 0.65);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}

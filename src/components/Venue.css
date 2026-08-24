@@ -1,0 +1,101 @@
+.venue-section {
+  padding: 50px 16px;
+}
+
+.venue-card {
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 28px 20px;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.venue-header-decor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.venue-building-icon {
+  color: var(--maroon);
+}
+
+.venue-name {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.venue-address-details {
+  margin-bottom: 20px;
+}
+
+.venue-complex {
+  font-size: 1.1rem;
+  color: var(--dark-gold);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.venue-street {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.venue-city-state {
+  font-size: 0.95rem;
+  color: var(--maroon);
+}
+
+.map-frame-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.venue-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-fallback-box {
+  width: 100%;
+  height: 100%;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+
+.fallback-pin {
+  color: var(--maroon);
+}
+
+.fallback-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.venue-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}

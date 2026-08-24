@@ -1,0 +1,127 @@
+.family-section {
+  padding: 50px 16px;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 233, 211, 0.4) 0%, transparent 80%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cream);
+  border: 1px solid var(--gold-light);
+  color: var(--maroon);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.family-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.family-card {
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.family-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-top-icon {
+  margin-bottom: 8px;
+}
+
+.family-role-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--maroon);
+  font-weight: 700;
+  background: rgba(110, 26, 36, 0.08);
+  padding: 3px 12px;
+  border-radius: 12px;
+}
+
+.family-card-heading {
+  font-size: 1rem;
+  color: var(--dark-gold);
+  margin: 12px 0 16px 0;
+  font-style: italic;
+}
+
+.parent-names {
+  margin-bottom: 16px;
+}
+
+.parent-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.and-symbol {
+  font-size: 1.8rem;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin: 4px 0;
+}
+
+.family-location {
+  border-top: 1px dashed rgba(197, 160, 89, 0.4);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.location-pin {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.family-divider-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -6px 0;
+}
+
+.heart-center-icon {
+  color: var(--maroon);
+  filter: drop-shadow(0 2px 4px rgba(110, 26, 36, 0.3));
+}
+
+.inviting-relatives-text {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 28px;
+}

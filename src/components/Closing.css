@@ -1,0 +1,123 @@
+.closing-section {
+  padding: 60px 16px;
+  background: #2a0b10;
+}
+
+.closing-card {
+  background: linear-gradient(135deg, #4a1017 0%, #6e1a24 50%, #3d0c12 100%);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(197, 160, 89, 0.2);
+}
+
+.closing-gold-frame {
+  position: relative;
+  border: 1px dashed rgba(212, 175, 55, 0.6);
+  padding: 30px 16px;
+  border-radius: 6px;
+}
+
+.closing-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+.closing-corner.top-l { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+.closing-corner.top-r { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+.closing-corner.bottom-l { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+.closing-corner.bottom-r { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
+.closing-symbol {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.closing-message {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.heart-pulse-container {
+  margin: 16px 0;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.heart-icon-closing {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+.with-love-text {
+  font-size: 2.2rem;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.couple-closing-name-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0 20px 0;
+  text-align: center;
+}
+
+.closing-name-line {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2rem;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  line-height: 1.25;
+}
+
+.closing-amp-wrapper {
+  margin: 4px 0;
+}
+
+.and-symbol-closing {
+  color: #D6B978 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.closing-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 12px 0;
+}
+
+.closing-divider .line {
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.closing-divider .sparkle {
+  color: var(--gold);
+}
+
+.closing-footer-date {
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  opacity: 0.9;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.copyright-notice {
+  font-size: 0.7rem;
+  color: var(--gold-light);
+  opacity: 0.6;
+}

@@ -1,0 +1,241 @@
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #0d0809;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.invitation-stage-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Background Muted Video */
+.welcome-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (min-width: 600px) {
+  .welcome-bg-video {
+    max-width: 520px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+  }
+}
+
+/* Backdrop Mask for legibility */
+.welcome-video-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, rgba(30, 8, 12, 0.35) 0%, rgba(15, 3, 5, 0.75) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Merged & Emerged Card Styling */
+.welcome-card-emerged {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(252, 249, 242, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 38px 22px;
+  text-align: center;
+  box-shadow: 
+    0 0 50px rgba(0, 0, 0, 0.6),
+    0 20px 40px rgba(110, 26, 36, 0.25),
+    inset 0 0 30px rgba(197, 160, 89, 0.25);
+  transform-origin: center center;
+}
+
+.welcome-card-merged::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.6);
+  pointer-events: none;
+}
+
+.auspicious-emblem {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 12px auto;
+}
+
+.journey-tagline {
+  font-size: 1.8rem;
+  color: var(--maroon);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.ganesha-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 8px rgba(197, 160, 89, 0.3));
+}
+
+.invocation-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--maroon);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.sub-invocation {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--dark-gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.title-divider .line {
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.sparkle-icon {
+  color: var(--gold);
+}
+
+.invitation-tag {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.couple-names-wrapper {
+  margin-bottom: 20px;
+}
+
+.bride-name, .groom-name {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2.2rem;
+  font-weight: 600 !important;
+  color: #7A1F3D !important;
+  -webkit-text-fill-color: #7A1F3D !important;
+  line-height: 1.25;
+  letter-spacing: 1.5px;
+}
+
+.ampersand-wrapper {
+  margin: 6px 0;
+}
+
+.ampersand {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2.2rem;
+  font-weight: 400 !important;
+  font-style: italic;
+  color: #2C221E !important;
+  line-height: 1;
+}
+
+.wedding-date-teaser {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 26px;
+}
+
+.open-invitation-btn {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+  padding: 14px 36px;
+  font-size: 0.95rem;
+}
+
+/* Banana Leaf Entrance Section Styling */
+.banana-leaf-entrance {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 50%, #33691e 100%);
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.welcome-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.welcome-content button {
+  background-color: #8bc34a;
+  border: none;
+  padding: 12px 30px;
+  color: #111;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.welcome-content button:hover {
+  background-color: #7cb342;
+}

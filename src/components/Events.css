@@ -1,0 +1,222 @@
+.events-section {
+  padding: 50px 16px;
+}
+
+.sumuhurtham-grand-card {
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 32px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 
+    0 15px 30px rgba(110, 26, 36, 0.1),
+    inset 0 0 25px rgba(197, 160, 89, 0.15);
+  margin-bottom: 30px;
+}
+
+.card-ornamental-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+.card-ornamental-corner.top-left { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+.card-ornamental-corner.top-right { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+.card-ornamental-corner.bottom-left { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+.card-ornamental-corner.bottom-right { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+.sumuhurtham-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #6e1a24 0%, #8b1e2b 100%);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.sumuhurtham-title {
+  font-size: 1.4rem;
+  color: var(--maroon);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.time-date-box {
+  background: var(--cream);
+  border: 1px solid var(--gold-light);
+  border-radius: 8px;
+  padding: 20px 16px;
+  margin-bottom: 20px;
+}
+
+.date-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.day-name {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--dark-gold);
+  font-weight: 700;
+}
+
+.date-number {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--maroon);
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.month-year {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.time-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top: 1px dashed rgba(197, 160, 89, 0.4);
+  padding-top: 12px;
+}
+
+.clock-icon {
+  color: var(--maroon);
+}
+
+.exact-time {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--maroon);
+}
+
+.astro-details-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.astro-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.astro-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.astro-value {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.astro-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--gold);
+}
+
+.venue-note {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.event-cal-btn {
+  padding: 8px 20px;
+  font-size: 0.78rem;
+}
+
+.events-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.event-card {
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-header-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.event-icon {
+  font-size: 1.8rem;
+}
+
+.event-title {
+  font-size: 1.15rem;
+  color: var(--maroon);
+  font-weight: 700;
+}
+
+.event-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.event-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cream);
+  border: 1px solid var(--gold-light);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.78rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.card-add-cal-btn {
+  align-self: flex-start;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+}
