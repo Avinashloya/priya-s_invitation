@@ -13,13 +13,13 @@ const weddingData = {
     }
   },
 
-  brideParents: {
+  groomParents: {
     father: "Sri Thalluri Jamalaiah",
     mother: "Smt. Ganga",
     location: "Tiruvuru, N.T.R. District"
   },
 
-  groomParents: {
+  brideParents: {
     father: "Sri Erla Rama Rao",
     mother: "Smt. Lakshmi",
     location: "Hanuman Junction"

@@ -9,7 +9,7 @@ const Family = () => {
 
   return (
     <section id="family" className="family-section">
-      <motion.div 
+      <motion.div
         className="section-header"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,8 +29,8 @@ const Family = () => {
       </motion.div>
 
       <div className="family-cards-grid">
-        {/* Groom's Family Card */}
-        <motion.div 
+        {/* Bride's Family Card */}
+        <motion.div
           className="family-card"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -38,37 +38,7 @@ const Family = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="card-top-icon">
-            <span className="family-role-tag">GROOM'S FAMILY</span>
-          </div>
-
-          <h3 className="family-card-heading font-serif">Son of</h3>
-
-          <div className="parent-names">
-            <p className="parent-name">{groomParents.father}</p>
-            <span className="and-symbol font-script">&</span>
-            <p className="parent-name">{groomParents.mother}</p>
-          </div>
-
-          <div className="family-location">
-            <span className="location-pin font-serif">📍 {groomParents.location}</span>
-          </div>
-        </motion.div>
-
-        {/* Center Golden Floral Separator */}
-        <div className="family-divider-center">
-          <Heart size={20} className="heart-center-icon" />
-        </div>
-
-        {/* Bride's Family Card */}
-        <motion.div 
-          className="family-card"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="card-top-icon">
-            <span className="family-role-tag">BRIDE'S FAMILY</span>
+            <span className="family-role-tag">Bride's Family</span>
           </div>
 
           <h3 className="family-card-heading font-serif">Daughter of</h3>
@@ -83,9 +53,39 @@ const Family = () => {
             <span className="location-pin font-serif">📍 {brideParents.location}</span>
           </div>
         </motion.div>
+
+        {/* Center Golden Floral Separator */}
+        <div className="family-divider-center">
+          <Heart size={20} className="heart-center-icon" />
+        </div>
+
+        {/* Groom's Family Card */}
+        <motion.div
+          className="family-card"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="card-top-icon">
+            <span className="family-role-tag">Groom's Family</span>
+          </div>
+
+          <h3 className="family-card-heading font-serif">Son of</h3>
+
+          <div className="parent-names">
+            <p className="parent-name">{groomParents.father}</p>
+            <span className="and-symbol font-script">&</span>
+            <p className="parent-name">{groomParents.mother}</p>
+          </div>
+
+          <div className="family-location">
+            <span className="location-pin font-serif">📍 {groomParents.location}</span>
+          </div>
+        </motion.div>
       </div>
 
-      <motion.p 
+      <motion.p
         className="inviting-relatives-text"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
