@@ -1,79 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Music } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
 import weddingData from '../data/weddingData';
-import './MusicControl.css';
 
 const MusicControl = ({ autoPlayTrigger }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  const attemptPlay = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = false;
-      audioRef.current.volume = 1.0;
-      return audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          return true;
-        })
-        .catch((err) => {
-          console.log("Autoplay waiting for user gesture:", err);
-          setIsPlaying(false);
-          return false;
-        });
-    }
-    return Promise.resolve(false);
-  };
+  const startAudioEngine = () => {
+    if (!audioRef.current) return;
 
-  const toggleMusic = (e) => {
-    if (e) e.stopPropagation();
-    if (isPlaying) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      setIsPlaying(false);
-    } else {
-      attemptPlay();
-    }
+    const audio = audioRef.current;
+    
+    // First start play call (browsers allow autoplay when started)
+    audio.play().then(() => {
+      // Unmute and restore volume
+      audio.muted = false;
+      audio.volume = 1.0;
+    }).catch((err) => {
+      console.log("Autoplay attempt handled:", err);
+      // Try muted play then unmute immediately
+      audio.muted = true;
+      audio.play().then(() => {
+        setTimeout(() => {
+          audio.muted = false;
+          audio.volume = 1.0;
+        }, 150);
+      }).catch(() => {});
+    });
   };
 
   useEffect(() => {
-    // Attempt playback immediately on component mount
-    attemptPlay();
+    // Start audio immediately on mount
+    startAudioEngine();
 
-    // Universal interaction handlers to unlock audio on mobile Safari & Android Chrome
-    const handleUserInteraction = () => {
-      if (!audioRef.current || audioRef.current.paused) {
-        attemptPlay();
-      }
+    // Universal background listeners
+    const handleAutoPlay = () => {
+      startAudioEngine();
     };
 
-    const handleVisibilityChange = () => {
-      if (!document.hidden && audioRef.current && !audioRef.current.paused) {
-        audioRef.current.play().catch(() => {});
-      }
-    };
+    window.addEventListener('load', handleAutoPlay);
+    window.addEventListener('pageshow', handleAutoPlay);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) startAutoPlay();
+    });
 
-    window.addEventListener('click', handleUserInteraction);
-    window.addEventListener('touchstart', handleUserInteraction);
-    window.addEventListener('pointerdown', handleUserInteraction);
-    window.addEventListener('scroll', handleUserInteraction);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pageshow', attemptPlay);
+    // Invisible interaction listeners for instant unmute on any gesture
+    window.addEventListener('click', handleAutoPlay, { passive: true });
+    window.addEventListener('touchstart', handleAutoPlay, { passive: true });
+    window.addEventListener('scroll', handleAutoPlay, { passive: true });
 
     return () => {
-      window.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('touchstart', handleUserInteraction);
-      window.removeEventListener('pointerdown', handleUserInteraction);
-      window.removeEventListener('scroll', handleUserInteraction);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pageshow', attemptPlay);
+      window.removeEventListener('load', handleAutoPlay);
+      window.removeEventListener('pageshow', handleAutoPlay);
+      window.removeEventListener('click', handleAutoPlay);
+      window.removeEventListener('touchstart', handleAutoPlay);
+      window.removeEventListener('scroll', handleAutoPlay);
     };
   }, []);
 
   useEffect(() => {
     if (autoPlayTrigger) {
-      attemptPlay();
+      startAudioEngine();
     }
   }, [autoPlayTrigger]);
 
@@ -85,29 +70,18 @@ const MusicControl = ({ autoPlayTrigger }) => {
   };
 
   return (
-    <div className="music-control-floating">
-      <audio 
-        ref={audioRef} 
-        loop 
-        playsInline
-        autoPlay
-        preload="auto"
-        onEnded={handleAudioEnded}
-      >
-        <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
-        <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
-      </audio>
-
-      <button 
-        className={`music-toggle-btn ${isPlaying ? 'playing' : ''}`}
-        onClick={toggleMusic}
-        aria-label="Toggle Wedding Music"
-        title={isPlaying ? "Mute Music" : "Play Wedding Music"}
-      >
-        <Music size={16} className={`music-note-icon ${isPlaying ? 'pulse' : ''}`} />
-        {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
-      </button>
-    </div>
+    <audio 
+      ref={audioRef} 
+      loop 
+      playsInline
+      autoPlay
+      preload="auto"
+      onEnded={handleAudioEnded}
+      style={{ display: 'none' }}
+    >
+      <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
+      <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
+    </audio>
   );
 };
 
