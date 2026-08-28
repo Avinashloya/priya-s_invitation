@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Heart } from 'lucide-react';
 import weddingData from '../data/weddingData';
 import './WelcomeScreen.css';
 
@@ -8,19 +8,8 @@ const WelcomeScreen = ({ onOpen }) => {
   const { bride, groom } = weddingData.couple;
   const hasTriggeredRef = useRef(false);
 
-  useEffect(() => {
-    // 3-second automatic timer to transition into main invitation
-    const timer = setTimeout(() => {
-      if (!hasTriggeredRef.current) {
-        hasTriggeredRef.current = true;
-        onOpen();
-      }
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [onOpen]);
-
-  const handleScreenClick = () => {
+  const handleOpenClick = (e) => {
+    if (e) e.stopPropagation();
     if (!hasTriggeredRef.current) {
       hasTriggeredRef.current = true;
       onOpen();
@@ -32,7 +21,7 @@ const WelcomeScreen = ({ onOpen }) => {
       className="welcome-overlay"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05, transition: { duration: 1.2, ease: "easeInOut" } }}
-      onClick={handleScreenClick}
+      onClick={handleOpenClick}
     >
       {/* Background Muted Video */}
       <video 
@@ -134,6 +123,19 @@ const WelcomeScreen = ({ onOpen }) => {
             <span className="ampersand font-script">&</span>
           </div>
           <h1 className="groom-name gold-text-bright">{groom.name}</h1>
+        </motion.div>
+
+        {/* Open Button (Triggers Gesture Unlock for Audio & Smooth Scroll) */}
+        <motion.div 
+          className="open-button-container"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          <button className="btn-gold open-invitation-btn" onClick={handleOpenClick}>
+            <Heart size={18} fill="currentColor" className="heart-pulse" />
+            <span>OPEN INVITATION</span>
+          </button>
         </motion.div>
       </motion.div>
     </motion.div>
