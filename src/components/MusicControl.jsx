@@ -1,79 +1,51 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Music } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
 import weddingData from '../data/weddingData';
-import './MusicControl.css';
 
 const MusicControl = ({ autoPlayTrigger }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  const attemptPlay = () => {
+  const startAutomaticPlayback = () => {
     if (audioRef.current) {
       audioRef.current.muted = false;
       audioRef.current.volume = 1.0;
-      return audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          return true;
-        })
-        .catch((err) => {
-          console.log("Autoplay blocked until user interaction:", err);
-          setIsPlaying(false);
-          return false;
-        });
-    }
-    return Promise.resolve(false);
-  };
-
-  const toggleMusic = (e) => {
-    if (e) e.stopPropagation();
-    if (isPlaying) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      setIsPlaying(false);
-    } else {
-      attemptPlay();
+      audioRef.current.play().catch((err) => {
+        console.log("Automatic playback attempt:", err);
+      });
     }
   };
 
   useEffect(() => {
-    // Attempt playback immediately
-    attemptPlay();
+    // Start audio automatically as soon as component mounts
+    startAutomaticPlayback();
 
-    // Register user interaction handlers to unlock audio on mobile Safari & Chrome
-    const handleUserInteraction = () => {
-      if (!isPlaying) {
-        attemptPlay();
-      }
+    // Trigger on page load & visibility events
+    window.addEventListener('load', startAutomaticPlayback);
+    window.addEventListener('pageshow', startAutomaticPlayback);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) startAutomaticPlayback();
+    });
+
+    // Also trigger on initial window movement / interaction seamlessly
+    const handleAutoUnlock = () => {
+      startAutomaticPlayback();
     };
 
-    const handleVisibilityChange = () => {
-      if (!document.hidden && isPlaying && audioRef.current) {
-        audioRef.current.play().catch(() => {});
-      }
-    };
-
-    window.addEventListener('click', handleUserInteraction, { passive: true });
-    window.addEventListener('touchstart', handleUserInteraction, { passive: true });
-    window.addEventListener('pointerdown', handleUserInteraction, { passive: true });
-    window.addEventListener('scroll', handleUserInteraction, { passive: true });
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pageshow', attemptPlay);
+    window.addEventListener('click', handleAutoUnlock, { passive: true });
+    window.addEventListener('touchstart', handleAutoUnlock, { passive: true });
+    window.addEventListener('scroll', handleAutoUnlock, { passive: true });
 
     return () => {
-      window.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('touchstart', handleUserInteraction);
-      window.removeEventListener('pointerdown', handleUserInteraction);
-      window.removeEventListener('scroll', handleUserInteraction);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pageshow', attemptPlay);
+      window.removeEventListener('load', startAutomaticPlayback);
+      window.removeEventListener('pageshow', startAutomaticPlayback);
+      window.removeEventListener('click', handleAutoUnlock);
+      window.removeEventListener('touchstart', handleAutoUnlock);
+      window.removeEventListener('scroll', handleAutoUnlock);
     };
   }, []);
 
   useEffect(() => {
     if (autoPlayTrigger) {
-      attemptPlay();
+      startAutomaticPlayback();
     }
   }, [autoPlayTrigger]);
 
@@ -85,29 +57,18 @@ const MusicControl = ({ autoPlayTrigger }) => {
   };
 
   return (
-    <div className="music-control-floating">
-      <audio 
-        ref={audioRef} 
-        loop 
-        playsInline
-        autoPlay
-        preload="auto"
-        onEnded={handleAudioEnded}
-      >
-        <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
-        <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
-      </audio>
-
-      <button 
-        className={`music-toggle-btn ${isPlaying ? 'playing' : ''}`}
-        onClick={toggleMusic}
-        aria-label="Toggle Wedding Music"
-        title={isPlaying ? "Mute Music" : "Play Wedding Music"}
-      >
-        <Music size={16} className={`music-note-icon ${isPlaying ? 'pulse' : ''}`} />
-        {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
-      </button>
-    </div>
+    <audio 
+      ref={audioRef} 
+      loop 
+      playsInline
+      autoPlay
+      preload="auto"
+      onEnded={handleAudioEnded}
+      style={{ display: 'none' }}
+    >
+      <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
+      <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
+    </audio>
   );
 };
 
