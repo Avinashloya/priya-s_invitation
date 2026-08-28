@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Heart } from 'lucide-react';
 import weddingData from '../data/weddingData';
@@ -8,12 +8,25 @@ const WelcomeScreen = ({ onOpen }) => {
   const { bride, groom } = weddingData.couple;
   const hasTriggeredRef = useRef(false);
 
-  const handleOpenClick = (e) => {
-    if (e) e.stopPropagation();
+  const triggerOpen = () => {
     if (!hasTriggeredRef.current) {
       hasTriggeredRef.current = true;
       onOpen();
     }
+  };
+
+  useEffect(() => {
+    // 3-second automated timer to transition into main invitation automatically
+    const timer = setTimeout(() => {
+      triggerOpen();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleOpenClick = (e) => {
+    if (e) e.stopPropagation();
+    triggerOpen();
   };
 
   return (
@@ -125,7 +138,7 @@ const WelcomeScreen = ({ onOpen }) => {
           <h1 className="groom-name gold-text-bright">{groom.name}</h1>
         </motion.div>
 
-        {/* Open Button (Triggers Gesture Unlock for Audio & Smooth Scroll) */}
+        {/* Open Button (Manual tap or 3-second auto-open) */}
         <motion.div 
           className="open-button-container"
           initial={{ y: 20, opacity: 0 }}
