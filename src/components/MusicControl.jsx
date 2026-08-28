@@ -1,79 +1,56 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Volume2, VolumeX, Music } from 'lucide-react';
 import weddingData from '../data/weddingData';
+import './MusicControl.css';
 
 const MusicControl = ({ autoPlayTrigger }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  const audioCtxRef = useRef(null);
-  const audioBufferRef = useRef(null);
-  const bufferSourceRef = useRef(null);
-  const isPlayingRef = useRef(false);
 
-  // Fetch and decode WhatsApp audio for Web Audio API fallback playback
-  useEffect(() => {
-    fetch(weddingData.music.file)
-      .then((res) => res.arrayBuffer())
-      .then((buffer) => {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (AudioCtx) {
-          const ctx = new AudioCtx();
-          audioCtxRef.current = ctx;
-          ctx.decodeAudioData(buffer, (decoded) => {
-            audioBufferRef.current = decoded;
-          }, () => {});
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  const playWebAudioFallback = () => {
-    if (!audioBufferRef.current || isPlayingRef.current) return;
-    try {
-      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
-        audioCtxRef.current.resume();
-      }
-      const source = audioCtxRef.current.createBufferSource();
-      source.buffer = audioBufferRef.current;
-      source.loop = true;
-      source.connect(audioCtxRef.current.destination);
-      source.start(0);
-      bufferSourceRef.current = source;
-      isPlayingRef.current = true;
-    } catch (e) {
-      console.warn("Web Audio fallback error:", e);
-    }
-  };
-
-  const playAudio = () => {
-    if (isPlayingRef.current) return;
-
+  const attemptPlay = () => {
     if (audioRef.current) {
       audioRef.current.muted = false;
       audioRef.current.volume = 1.0;
-      audioRef.current.play()
+      return audioRef.current.play()
         .then(() => {
-          isPlayingRef.current = true;
+          setIsPlaying(true);
+          return true;
         })
         .catch((err) => {
-          console.log("Standard audio blocked, attempting Web Audio API fallback...", err);
-          playWebAudioFallback();
+          console.log("Autoplay blocked until user interaction:", err);
+          setIsPlaying(false);
+          return false;
         });
+    }
+    return Promise.resolve(false);
+  };
+
+  const toggleMusic = (e) => {
+    if (e) e.stopPropagation();
+    if (isPlaying) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+      setIsPlaying(false);
     } else {
-      playWebAudioFallback();
+      attemptPlay();
     }
   };
 
   useEffect(() => {
-    // Attempt playback on mount
-    playAudio();
+    // Attempt playback immediately
+    attemptPlay();
 
-    // Interaction handlers to unlock audio on mobile / browser gesture requirement
+    // Register user interaction handlers to unlock audio on mobile Safari & Chrome
     const handleUserInteraction = () => {
-      playAudio();
+      if (!isPlaying) {
+        attemptPlay();
+      }
     };
 
     const handleVisibilityChange = () => {
-      if (!document.hidden) {
-        playAudio();
+      if (!document.hidden && isPlaying && audioRef.current) {
+        audioRef.current.play().catch(() => {});
       }
     };
 
@@ -82,7 +59,7 @@ const MusicControl = ({ autoPlayTrigger }) => {
     window.addEventListener('pointerdown', handleUserInteraction, { passive: true });
     window.addEventListener('scroll', handleUserInteraction, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pageshow', playAudio);
+    window.addEventListener('pageshow', attemptPlay);
 
     return () => {
       window.removeEventListener('click', handleUserInteraction);
@@ -90,13 +67,13 @@ const MusicControl = ({ autoPlayTrigger }) => {
       window.removeEventListener('pointerdown', handleUserInteraction);
       window.removeEventListener('scroll', handleUserInteraction);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pageshow', playAudio);
+      window.removeEventListener('pageshow', attemptPlay);
     };
   }, []);
 
   useEffect(() => {
     if (autoPlayTrigger) {
-      playAudio();
+      attemptPlay();
     }
   }, [autoPlayTrigger]);
 
@@ -108,18 +85,29 @@ const MusicControl = ({ autoPlayTrigger }) => {
   };
 
   return (
-    <audio 
-      ref={audioRef} 
-      loop 
-      playsInline
-      autoPlay
-      preload="auto"
-      onEnded={handleAudioEnded}
-      style={{ display: 'none' }}
-    >
-      <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
-      <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
-    </audio>
+    <div className="music-control-floating">
+      <audio 
+        ref={audioRef} 
+        loop 
+        playsInline
+        autoPlay
+        preload="auto"
+        onEnded={handleAudioEnded}
+      >
+        <source src="/assets/music/wedding-audio.mp3" type="audio/mp3" />
+        <source src="/assets/music/wedding-audio.mpeg" type="audio/mpeg" />
+      </audio>
+
+      <button 
+        className={`music-toggle-btn ${isPlaying ? 'playing' : ''}`}
+        onClick={toggleMusic}
+        aria-label="Toggle Wedding Music"
+        title={isPlaying ? "Mute Music" : "Play Wedding Music"}
+      >
+        <Music size={16} className={`music-note-icon ${isPlaying ? 'pulse' : ''}`} />
+        {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
+      </button>
+    </div>
   );
 };
 
