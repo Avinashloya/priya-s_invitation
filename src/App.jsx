@@ -34,6 +34,9 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Background Audio Player */}
+      <MusicControl autoPlayTrigger={autoPlayAudio} />
+
       {/* Ambient Floating Flower Petals & Gold Sparkles */}
       <FallingPetals />
 
@@ -54,7 +57,6 @@ function App() {
         <Gallery />
         <RSVP />
         <Closing />
-        <MusicControl autoPlayTrigger={autoPlayAudio} />
       </main>
     </div>
   );
