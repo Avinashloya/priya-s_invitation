@@ -59,7 +59,7 @@ const weddingData = {
 
   music: {
     enabled: true,
-    file: "/assets/music/pelli.mp3"
+    file: "/assets/music/wedding-audio.mpeg"
   },
 
   illustration: "/assets/illustrations/wedding-artwork.jpg",

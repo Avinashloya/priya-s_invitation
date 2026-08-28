@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import weddingData from '../data/weddingData';
 import './WelcomeScreen.css';
 
 const WelcomeScreen = ({ onOpen }) => {
   const { bride, groom } = weddingData.couple;
+  const hasTriggeredRef = useRef(false);
+
+  useEffect(() => {
+    // 3-second automatic timer to transition into main invitation
+    const timer = setTimeout(() => {
+      if (!hasTriggeredRef.current) {
+        hasTriggeredRef.current = true;
+        onOpen();
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [onOpen]);
+
+  const handleScreenClick = () => {
+    if (!hasTriggeredRef.current) {
+      hasTriggeredRef.current = true;
+      onOpen();
+    }
+  };
 
   return (
     <motion.div 
       className="welcome-overlay"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05, transition: { duration: 1.2, ease: "easeInOut" } }}
+      onClick={handleScreenClick}
     >
       {/* Background Muted Video */}
       <video 
@@ -26,19 +47,19 @@ const WelcomeScreen = ({ onOpen }) => {
       {/* Dark Glass Backdrop Layer */}
       <div className="welcome-video-backdrop"></div>
 
-      {/* Invitation Card Emerging Directly Out of the Video */}
+      {/* Invitation Card Emerging Directly Out of Video */}
       <motion.div 
         className="welcome-card welcome-card-emerged"
-        initial={{ opacity: 0, scale: 0.65, y: 60, filter: 'blur(8px)' }}
+        initial={{ opacity: 0, scale: 0.7, y: 50, filter: 'blur(8px)' }}
         animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       >
         {/* Traditional Auspicious Ganesha Emblem */}
         <motion.div 
           className="auspicious-emblem"
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <svg className="ganesha-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="45" stroke="#d4af37" strokeWidth="1.5" strokeDasharray="4 2" />
@@ -61,7 +82,7 @@ const WelcomeScreen = ({ onOpen }) => {
           className="journey-tagline font-script"
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           {weddingData.couple.tagline}
         </motion.p>
@@ -71,7 +92,7 @@ const WelcomeScreen = ({ onOpen }) => {
           className="invocation-text"
           initial={{ y: 15, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
         >
           ॥ శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు ॥
         </motion.p>
@@ -80,7 +101,7 @@ const WelcomeScreen = ({ onOpen }) => {
           className="sub-invocation"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
           Srirastu Subhamastu Avighnamastu
         </motion.p>
@@ -96,7 +117,7 @@ const WelcomeScreen = ({ onOpen }) => {
           className="invitation-tag"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
         >
           WEDDING INVITATION
         </motion.h3>
@@ -106,26 +127,13 @@ const WelcomeScreen = ({ onOpen }) => {
           className="couple-names-wrapper"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
+          transition={{ duration: 0.9, delay: 1.0 }}
         >
           <h1 className="bride-name gold-text-bright">{bride.name}</h1>
           <div className="ampersand-wrapper">
             <span className="ampersand font-script">&</span>
           </div>
           <h1 className="groom-name gold-text-bright">{groom.name}</h1>
-        </motion.div>
-
-        {/* Open Button */}
-        <motion.div 
-          className="open-button-container"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-        >
-          <button className="btn-gold open-invitation-btn" onClick={onOpen}>
-            <Heart size={16} fill="currentColor" />
-            <span>OPEN INVITATION</span>
-          </button>
         </motion.div>
       </motion.div>
     </motion.div>
