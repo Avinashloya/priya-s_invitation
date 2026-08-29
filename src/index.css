@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
 /* Custom CSS Reset & Indian Luxury Wedding Design System */
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+}
+
+.details {
+    font-family: 'Cormorant Garamond', serif;
+}
+
 :root {
   --ivory: #fcf9f2;
   --cream: #f4ede0;

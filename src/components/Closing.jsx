@@ -32,7 +32,7 @@ const Closing = () => {
           </h2>
 
           <div className="heart-pulse-container">
-            <Heart className="heart-icon-closing" size={28} fill="#d4af37" color="#d4af37" />
+            <Heart className="heart-icon-closing" size={30} fill="#d4af37" color="#d4af37" />
           </div>
 
           <div className="couple-closing-name-block">

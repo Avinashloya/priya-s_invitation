@@ -68,17 +68,20 @@ const weddingData = {
     {
       url: "/assets/images/photo-1.jpg",
       category: "Moments",
-      caption: "Chi. Keerthi Priya & Chi. Venkata Ramanaiah"
+      caption: " Keerthi Priya & Venkata Ramanaiah",
+      subcaption: "A Heartfelt Moment of Togetherness"
     },
     {
       url: "/assets/images/photo-2.jpg",
       category: "Ceremony",
-      caption: "Sacred Garlands & Blessings"
+      caption: "Sacred Garlands & Blessings",
+      subcaption: "Two Souls, One Beautiful Bond"
     },
     {
       url: "/assets/images/photo-3.jpg",
       category: "Together",
-      caption: "A Journey of Togetherness & Joy"
+      caption: "A Journey of Togetherness & Joy",
+      subcaption: "Sacred Auspicious Celebrations"
     }
   ],
 

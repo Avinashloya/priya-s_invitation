@@ -79,17 +79,6 @@ const RSVP = () => {
           Your presence and blessings on our auspicious wedding day will mean the world to us and our families.
         </p>
 
-        <div className="extra-buttons-row margin-top">
-          <button className="whatsapp-rsvp-btn" onClick={handleWhatsAppRSVP}>
-            <MessageSquare size={18} />
-            <span>RSVP via WhatsApp</span>
-          </button>
-
-          <button className="share-btn" onClick={handleShare}>
-            {copied ? <Check size={18} /> : <Share2 size={18} />}
-            <span>{copied ? 'Link Copied!' : 'Share Invitation'}</span>
-          </button>
-        </div>
       </motion.div>
     </section>
   );

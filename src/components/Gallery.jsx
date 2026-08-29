@@ -47,11 +47,28 @@ const Gallery = () => {
                 className="gallery-image"
                 loading="lazy"
               />
+
               <div className="gallery-hover-overlay">
-                <Maximize2 size={24} color="#ffffff" />
-                <span className="hover-caption">{item.caption}</span>
+                <Maximize2 size={28} color="#ffffff" className="hover-icon" />
+
+                <span className="hover-caption font-serif">
+                  {item.caption}
+                </span>
+
+                {item.subcaption && (
+                  <span className="hover-subcaption">
+                    {item.subcaption}
+                  </span>
+                )}
               </div>
             </div>
+
+            <div className="gallery-card-caption-bar">
+              <h4 className="card-caption-title font-serif">
+                {item.caption}
+              </h4>
+            </div>
+
             <div className="gallery-frame-border"></div>
           </motion.div>
         ))}
@@ -82,7 +99,12 @@ const Gallery = () => {
               </button>
               <img src={selectedImage.url} alt={selectedImage.caption} className="lightbox-image" />
               {selectedImage.caption && (
-                <p className="lightbox-caption font-serif">{selectedImage.caption}</p>
+                <div className="lightbox-caption-wrapper">
+                  <p className="lightbox-caption font-serif">{selectedImage.caption}</p>
+                  {selectedImage.subcaption && (
+                    <p className="lightbox-subcaption">{selectedImage.subcaption}</p>
+                  )}
+                </div>
               )}
             </motion.div>
           </motion.div>
