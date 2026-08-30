@@ -109,6 +109,28 @@ const weddingData = {
       venue: "Our Residence"
     },
     {
+      id: "mehendi",
+      icon: "🌿",
+      name: "Mehendi Ceremony",
+      date: "2026-09-04",
+      time: "14:00",
+      displayDate: "Friday, 4th September 2026",
+      displayTime: "2:00 p.m.",
+      details: "Henna Art & Auspicious Celebration",
+      venue: "Our Residence"
+    },
+    {
+      id: "sangeet",
+      icon: "🎵",
+      name: "Sangeet Ceremony",
+      date: "2026-09-04",
+      time: "19:00",
+      displayDate: "Friday, 4th September 2026",
+      displayTime: "7:00 p.m.",
+      details: "Musical Night & Dance Celebrations",
+      venue: "Our Residence"
+    },
+    {
       id: "sumuhurtham",
       icon: "🪔",
       name: "Sumuhurtham (Wedding)",
