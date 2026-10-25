@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
 
 /* Custom CSS Reset & Indian Luxury Wedding Design System */
 .couple-names {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 700 !important;
 }
 
 .details {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 600 !important;
 }
 
 :root {
@@ -26,12 +28,12 @@
   --text-muted: #685950;
   --white: #ffffff;
   
-  --font-display: 'Cormorant Garamond', 'Didot', serif;
-  --font-heading: 'Cormorant Garamond', 'Bodoni Moda', serif;
-  --font-body: 'Libre Caslon Text', 'Lora', Georgia, serif;
-  --font-label: 'Inter', sans-serif;
-  --font-serif: 'Cormorant Garamond', 'Libre Caslon Text', serif;
-  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+  --font-display: 'Dancing Script', cursive;
+  --font-heading: 'Dancing Script', cursive;
+  --font-body: 'Dancing Script', cursive;
+  --font-label: 'Dancing Script', cursive;
+  --font-serif: 'Dancing Script', cursive;
+  --font-script: 'Dancing Script', cursive;
 
   --shadow-card: 0 18px 40px rgba(110, 26, 36, 0.09), 0 6px 18px rgba(0, 0, 0, 0.05);
   --shadow-gold: 0 10px 30px rgba(214, 185, 120, 0.35);
@@ -53,6 +55,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 600;
   background-color: var(--ivory);
   background-image: 
     radial-gradient(circle at 50% 0%, rgba(245, 233, 211, 0.6) 0%, transparent 70%),
@@ -107,9 +110,9 @@ body {
   background: none !important;
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: #D6B978 !important;
-  font-family: 'Cormorant Garamond', serif !important;
-  font-weight: 600 !important;
-  letter-spacing: 1.5px;
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
   text-shadow: none !important;
 }
 
@@ -117,9 +120,9 @@ body {
 .bride-name, .groom-name, .person-name, .couple-joining-names {
   color: #7A1F3D !important;
   -webkit-text-fill-color: #7A1F3D !important;
-  font-family: 'Cormorant Garamond', serif !important;
-  font-weight: 600 !important;
-  letter-spacing: 1.5px;
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
   background: none !important;
   -webkit-background-clip: unset !important;
 }
@@ -127,32 +130,35 @@ body {
 /* Typography Classes */
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .font-heading, .heading-cinzel {
   font-family: var(--font-heading);
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .font-body {
   font-family: var(--font-body);
+  font-weight: 600;
   line-height: 1.75;
 }
 
 .font-label {
   font-family: var(--font-label);
-  letter-spacing: 0.34em;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .font-script {
-  font-family: var(--font-script);
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: 700;
 }
 
 .font-serif {
-  font-family: var(--font-serif);
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: 600;
 }
 
 /* Reusable Indian Luxury Ornaments */

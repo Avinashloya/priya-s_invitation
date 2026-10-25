@@ -8,8 +8,8 @@ import Events from './components/Events';
 import Countdown from './components/Countdown';
 import Venue from './components/Venue';
 import Gallery from './components/Gallery';
-import RSVP from './components/RSVP';
 import Closing from './components/Closing';
+import RoyalMandapamDecor from './components/RoyalMandapamDecor';
 import MusicControl from './components/MusicControl';
 import FallingPetals from './components/FallingPetals';
 
@@ -35,9 +35,9 @@ function App() {
   return (
     <div className="app-container">
       {/* Background Audio Player */}
-      <MusicControl autoPlayTrigger={autoPlayAudio} />
+      <MusicControl autoPlayTrigger={autoPlayAudio} isOpened={isOpened} />
 
-      {/* Ambient Floating Flower Petals & Gold Sparkles */}
+      {/* Ambient Floating White Jasmine Petals */}
       <FallingPetals />
 
       <AnimatePresence>
@@ -48,6 +48,9 @@ function App() {
 
       {/* Main Wedding Invitation Page */}
       <main className="wedding-invitation-main">
+        {/* Royal Mandapam Double Frame, Corner Flourishes, Cascade Jasmine, Bells & Lotus */}
+        <RoyalMandapamDecor />
+
         <Navbar />
         <Hero />
         <Family />
@@ -55,7 +58,6 @@ function App() {
         <Countdown />
         <Venue />
         <Gallery />
-        <RSVP />
         <Closing />
       </main>
     </div>

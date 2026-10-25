@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Royal Indian Mandapam Decorative Overlay & Framing Styles
+   ========================================================================== */
+
+/* Main Container Frame & Paper Texture */
+.wedding-invitation-main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* Warm ivory and cream paper texture */
+  background-color: #faf6ee;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(214, 185, 120, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(110, 26, 36, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 0% 50%, rgba(214, 185, 120, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, #fdfaf3 0%, #faf5ea 50%, #fdfaf3 100%);
+  color: var(--text-dark);
+  overflow: hidden;
+}
+
+/* Master Decorative Overlay (non-blocking) */
+.royal-mandapam-decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* 1. Thin Double-Line Antique-Gold Ornamental Border Frame */
+.royal-gold-border-outer {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1.5px solid #d4af37;
+  border-radius: 12px;
+  pointer-events: none;
+  box-shadow: 
+    inset 0 0 15px rgba(214, 185, 120, 0.15),
+    0 0 10px rgba(214, 185, 120, 0.12);
+}
+
+.royal-gold-border-inner {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 0.8px dashed rgba(212, 175, 55, 0.65);
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+/* 2. Four Corner Flourishes */
+.corner-flourish {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  pointer-events: none;
+  z-index: 26;
+  opacity: 0.9;
+}
+
+.corner-top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.corner-top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.corner-bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.corner-bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.corner-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 3. Cascading White Jasmine Flowers & Leaves from Upper-Left */
+.upper-left-jasmine-cascade {
+  position: absolute;
+  top: 48px;
+  left: 8px;
+  width: 125px;
+  height: 210px;
+  pointer-events: none;
+  z-index: 27;
+  filter: drop-shadow(0 3px 5px rgba(110, 26, 36, 0.12));
+}
+
+.cascade-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 4. Two Ornate Golden Hanging Temple Bells Along Left Side */
+.left-side-temple-bells {
+  position: absolute;
+  top: 380px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  pointer-events: none;
+  z-index: 27;
+}
+
+.hanging-bell-wrapper {
+  transform-origin: 50% 0%;
+  animation: royalBellSway 3.8s ease-in-out infinite alternate;
+}
+
+.hanging-bell-wrapper.bell-2 {
+  animation-duration: 4.5s;
+  animation-delay: -1.6s;
+  margin-left: 6px;
+}
+
+.bell-svg {
+  width: 38px;
+  height: 95px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(110, 26, 36, 0.2));
+}
+
+@keyframes royalBellSway {
+  0% {
+    transform: rotate(-3.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3.5deg);
+  }
+}
+
+/* 5. Upper-Center Symmetrical Arched Ornamental Frame with Gold Lotus */
+.upper-center-royal-arch {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 360px);
+  pointer-events: none;
+  z-index: 26;
+  opacity: 0.95;
+}
+
+.arch-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(214, 185, 120, 0.35));
+}
+
+/* 6. White Lotus Flowers with Green Leaves and Gold Foliage in Bottom-Right Corner */
+.bottom-right-white-lotus {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 27;
+  filter: drop-shadow(0 4px 10px rgba(110, 26, 36, 0.15));
+}
+
+.lotus-corner-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 480px) {
+  .corner-flourish {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .upper-left-jasmine-cascade {
+    width: 95px;
+    height: 165px;
+  }
+  
+  .left-side-temple-bells {
+    top: 320px;
+    left: 6px;
+    gap: 40px;
+  }
+
+  .bell-svg {
+    width: 30px;
+    height: 75px;
+  }
+
+  .upper-center-royal-arch {
+    top: 52px;
+    width: 94%;
+  }
+
+  .bottom-right-white-lotus {
+    width: 110px;
+    height: 110px;
+  }
+}

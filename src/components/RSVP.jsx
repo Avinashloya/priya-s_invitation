@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageSquare, Share2, Check, Send } from 'lucide-react';
 import weddingData from '../data/weddingData';
+import WhiteJasmineGarland from './WhiteJasmineGarland';
 import './RSVP.css';
 
 const RSVP = () => {
@@ -11,8 +12,9 @@ const RSVP = () => {
 
   // Direct WhatsApp Handler
   const handleWhatsAppRSVP = () => {
-    const defaultText = `Namaste! I am delighted to accept the wedding invitation of ${bride.name} & ${groom.name}. Looking forward to celebrating with you!`;
-    const encodedMsg = encodeURIComponent(whatsapp.message || defaultText);
+    const defaultText = `Namaste! Heartiest congratulations to ${bride.name} & ${groom.name}. I am delighted to accept your auspicious wedding invitation and look forward to celebrating with you!`;
+    const messageToSend = whatsapp.message || defaultText;
+    const encodedMsg = encodeURIComponent(messageToSend);
     const phone = whatsapp.number ? whatsapp.number.replace(/\D/g, '') : '';
     
     if (phone) {
@@ -26,7 +28,7 @@ const RSVP = () => {
   const handleShare = async () => {
     const shareData = {
       title: `${bride.name} & ${groom.name} Wedding Invitation`,
-      text: `You are cordially invited to celebrate the wedding of ${bride.name} & ${groom.name} on Saturday, 5th September 2026!`,
+      text: `You are cordially invited to celebrate the auspicious wedding of ${bride.name} & ${groom.name} on ${weddingData.wedding.displayDate}!`,
       url: window.location.href
     };
 
@@ -49,37 +51,53 @@ const RSVP = () => {
 
   return (
     <section id="rsvp" className="rsvp-section">
-      <motion.div 
-        className="section-header"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="section-badge">
-          <Send size={16} />
-          <span>JOIN THE CELEBRATION</span>
-        </div>
-        <h2 className="section-title gold-text">We Look Forward to Seeing You!</h2>
-        <div className="ornament-divider">
-          <span className="line"></span>
-          <span className="icon font-serif">💌</span>
-          <span className="line"></span>
-        </div>
-      </motion.div>
+      {/* Decorative Jasmine Arch */}
+      <WhiteJasmineGarland variant="arch" showBells={true} />
 
-      <motion.div 
-        className="rsvp-card text-center"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <p className="rsvp-welcome-text font-serif">
-          Your presence and blessings on our auspicious wedding day will mean the world to us and our families.
-        </p>
+      <div className="container">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="section-badge font-serif">
+            <Send size={16} />
+            <span>WEDDING CELEBRATION</span>
+          </div>
+          <h2 className="section-title gold-text font-serif">We Look Forward to Seeing You!</h2>
+          <div className="ornament-divider">
+            <span className="line"></span>
+            <span className="icon font-serif">✦ 💌 ✦</span>
+            <span className="line"></span>
+          </div>
+        </motion.div>
 
-      </motion.div>
+        <motion.div 
+          className="rsvp-card text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="rsvp-welcome-text font-serif">
+            Your gracious presence and sacred blessings on our wedding day will mean the world to us and our families.
+          </p>
+
+          <div className="rsvp-action-buttons">
+            <button className="btn-gold rsvp-whatsapp-btn font-serif" onClick={handleWhatsAppRSVP}>
+              <MessageSquare size={18} />
+              <span>CONFIRM VIA WHATSAPP</span>
+            </button>
+
+            <button className="btn-outline-gold rsvp-share-btn font-serif" onClick={handleShare}>
+              {copied ? <Check size={18} /> : <Share2 size={18} />}
+              <span>{copied ? 'LINK COPIED!' : 'SHARE INVITATION'}</span>
+            </button>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -1,156 +1,161 @@
 const weddingData = {
   couple: {
     tagline: "Two Souls, One Beautiful Journey",
+    blessing: "With the Divine Blessings of Elders & Almighty",
     bride: {
       title: "Chi. La. Sow.",
-      name: "Keerthi Priya",
-      qualification: "B.Tech."
+      name: "Mohana Priya",
+      qualification: ""
     },
     groom: {
       title: "Chi.",
-      name: "Venkata Ramanaiah",
-      qualification: "B.Tech."
+      name: "Likhith Varma",
+      qualification: ""
     }
   },
 
   groomParents: {
-    father: "Sri Thalluri Jamalaiah",
-    mother: "Smt. Ganga",
-    location: "Tiruvuru, N.T.R. District"
+    relationship: "Son of",
+    father: "Sri Muppala Manohar Raju",
+    mother: "Smt. Venkata Ramanamma",
+    location: "Duggunta Rajupalem"
   },
 
   brideParents: {
-    father: "Sri Erla Rama Rao",
-    mother: "Smt. Lakshmi",
-    location: "Hanuman Junction"
+    relationship: "Daughter of",
+    father: "Late Sri Konduru Ramraju",
+    mother: "Smt. Vijaya",
+    location: "Polluru"
   },
 
   wedding: {
-    date: "2026-09-05",
-    time: "23:05",
-    displayDate: "Saturday, 5th September 2026",
-    displayTime: "11:05 p.m.",
-    nakshatram: "Arudhra Nakshatram",
-    lagnam: "Vrishaba Lagnam"
+    date: "2026-11-26",
+    time: "04:40",
+    displayDate: "Thursday, 26th November 2026",
+    displayTime: "4:40 AM – 4:44 AM",
+    dayName: "THURSDAY",
+    dateNumber: "26",
+    monthYear: "NOVEMBER 2026",
+    nakshatram: "Mrugasira Nakshatram",
+    lagnam: "Tula Lagnam",
+    message: "We cordially invite you to grace the Wedding Ceremony of"
+  },
+
+  pellikuthuru: {
+    name: "Pellikuthuru Ceremony",
+    date: "2026-11-25",
+    time: "10:30",
+    displayDate: "Wednesday, 25th November 2026",
+    displayTime: "10:30 a.m.",
+    venue: "Tiruvalluru",
+    details: "Traditional Bridal Blessing Ceremony"
+  },
+
+  reception: {
+    date: "2026-11-25",
+    time: "18:00",
+    displayDate: "Wednesday, 25th November 2026",
+    displayTime: "6:00 PM onwards",
+    dayName: "WEDNESDAY",
+    dateNumber: "25",
+    monthYear: "NOVEMBER 2026",
+    venue: "MR Convention, Podalakur",
+    message: "We cordially invite you to join us for the Reception to bless the newly wedded couple."
   },
 
   dinner: {
-    date: "2026-09-05",
-    time: "19:30",
-    displayDate: "Saturday, 5th September 2026",
-    displayTime: "7:30 p.m. Onwards"
+    date: "2026-11-25",
+    time: "19:00",
+    displayDate: "Wednesday, 25th November 2026",
+    displayTime: "7:00 p.m. Onwards",
+    venue: "MR Convention, Podalakur",
+    details: "Grand Wedding Dinner Feast"
   },
 
   venue: {
-    name: "R.K. Convention",
-    complex: "Ganapathi Complex",
-    address: "Beside H.P. Petrol Bunk, Eluru Road",
-    city: "Hanuman Junction",
+    name: "MR Convention",
+    complex: "Podalakur",
+    address: "Podalakur",
+    city: "Podalakur",
     state: "Andhra Pradesh",
     country: "India",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=RK+Convention+Ganapathi+Complex+Hanuman+Junction",
-    embedUrl: "https://maps.google.com/maps?q=16.634621,80.957519&z=15&output=embed"
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=MR+Convention+Podalakur",
+    embedUrl: "https://maps.google.com/maps?q=MR+Convention+Podalakur&z=15&output=embed"
   },
 
   whatsapp: {
     number: "919876543210",
-    message: "Namaste! Warmest congratulations to Keerthi Priya & Venkata Ramanaiah. I am delighted to accept your wedding invitation!"
+    message: "Namaste! Warmest congratulations to Mohana Priya & Likhith Varma. I am delighted to accept your wedding invitation!"
   },
 
   music: {
     enabled: true,
-    file: "/assets/music/wedding-audio.mp3"
+    file: "/assets/music/wedding-song.mp3"
   },
 
   illustration: "/assets/illustrations/wedding-artwork.jpg",
 
   gallery: [
     {
+      url: "/assets/images/photo-namaste.jpg",
+      category: "Ceremony",
+      caption: "Sacred Garlands & Divine Blessings",
+      subcaption: "Dressed in Auspicious Royal Elegance"
+    },
+    {
+      url: "/assets/images/photo-doorway.jpg",
+      category: "Together",
+      caption: "Joyful Moments of Togetherness",
+      subcaption: "Two Hearts Full of Love and Laughter"
+    },
+    {
+      url: "/assets/images/photo-hands.jpg",
+      category: "Sacred Bond",
+      caption: "Hand in Hand Forever",
+      subcaption: "The Sacred Promise of Eternal Love"
+    },
+    {
       url: "/assets/images/photo-1.jpg",
       category: "Moments",
-      caption: " Keerthi Priya & Venkata Ramanaiah",
-      subcaption: "A Heartfelt Moment of Togetherness"
+      caption: "Mohana Priya & Likhith Varma",
+      subcaption: "Two Souls, One Beautiful Journey"
     },
     {
       url: "/assets/images/photo-2.jpg",
-      category: "Ceremony",
-      caption: "Sacred Garlands & Blessings",
-      subcaption: "Two Souls, One Beautiful Bond"
+      category: "Together",
+      caption: "A Heartfelt Moment of Togetherness",
+      subcaption: "Stepping into Forever Together"
     },
     {
-      url: "/assets/images/photo-3.jpg",
-      category: "Together",
-      caption: "A Journey of Togetherness & Joy",
-      subcaption: "Sacred Auspicious Celebrations"
+      url: "/assets/images/photo-4.jpg",
+      category: "Celebrations",
+      caption: "Royal Smiles & Auspicious Joy",
+      subcaption: "A Lifetime of Love and Happiness"
     }
   ],
 
   events: [
     {
-      id: "haldi",
-      icon: "🌼",
-      name: "Haldi Ceremony",
-      date: "2026-09-03",
-      time: "09:00",
-      displayDate: "Thursday, 3rd September 2026",
-      displayTime: "9:00 a.m.",
-      details: "Auspicious Turmeric Blessing Ceremony",
-      venue: "Our Residence"
-    },
-    {
-      id: "pellikuthuru",
-      icon: "🌸",
-      name: "Pellikuthuru Ceremony",
-      date: "2026-09-03",
-      time: "11:00",
-      displayDate: "Thursday, 3rd September 2026",
-      displayTime: "11:00 a.m.",
-      details: "Traditional Bridal Blessing Ceremony",
-      venue: "Our Residence"
-    },
-    {
-      id: "mehendi",
-      icon: "🌿",
-      name: "Mehendi Ceremony",
-      date: "2026-09-04",
-      time: "14:00",
-      displayDate: "Friday, 4th September 2026",
-      displayTime: "2:00 p.m.",
-      details: "Henna Art & Auspicious Celebration",
-      venue: "Our Residence"
-    },
-    {
-      id: "sangeet",
-      icon: "🎵",
-      name: "Sangeet Ceremony",
-      date: "2026-09-04",
-      time: "19:00",
-      displayDate: "Friday, 4th September 2026",
-      displayTime: "7:00 p.m.",
-      details: "Musical Night & Dance Celebrations",
-      venue: "Our Residence"
+      id: "reception",
+      icon: "🎉",
+      name: "Reception",
+      date: "2026-11-25",
+      time: "18:00",
+      displayDate: "Wednesday, 25th November 2026",
+      displayTime: "6:00 PM onwards",
+      details: "To bless the newly wedded couple",
+      venue: "MR Convention, Podalakur"
     },
     {
       id: "sumuhurtham",
-      icon: "🪔",
-      name: "Sumuhurtham (Wedding)",
-      date: "2026-09-05",
-      time: "23:05",
-      displayDate: "Saturday, 5th September 2026",
-      displayTime: "11:05 p.m.",
-      details: "Arudhra Nakshatram & Vrishaba Lagnam",
-      venue: "R.K. Convention, Hanuman Junction"
-    },
-    {
-      id: "dinner",
-      icon: "🍽️",
-      name: "Dinner",
-      date: "2026-09-05",
-      time: "19:30",
-      displayDate: "Saturday, 5th September 2026",
-      displayTime: "7:30 p.m. Onwards",
-      details: "Grand Wedding Dinner Feast",
-      venue: "R.K. Convention, Hanuman Junction"
+      icon: "🌸",
+      name: "Wedding Ceremony (Sumuhurtham)",
+      date: "2026-11-26",
+      time: "04:40",
+      displayDate: "Thursday, 26th November 2026",
+      displayTime: "4:40 AM – 4:44 AM",
+      details: "Mrugasira Nakshatram & Tula Lagnam",
+      venue: "MR Convention, Podalakur"
     }
   ]
 };

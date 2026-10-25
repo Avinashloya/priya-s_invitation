@@ -1,154 +1,126 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import weddingData from '../data/weddingData';
+import BananaLeafPillar from './BananaLeafPillar';
+import WhiteJasmineGarland from './WhiteJasmineGarland';
+import Thoranam from './Thoranam';
 import './WelcomeScreen.css';
 
 const WelcomeScreen = ({ onOpen }) => {
   const { bride, groom } = weddingData.couple;
-  const hasTriggeredRef = useRef(false);
-
-  const triggerOpen = () => {
-    if (!hasTriggeredRef.current) {
-      hasTriggeredRef.current = true;
-      onOpen();
-    }
-  };
-
-  useEffect(() => {
-    // 3-second automated timer to transition into main invitation automatically
-    const timer = setTimeout(() => {
-      triggerOpen();
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleOpenClick = (e) => {
     if (e) e.stopPropagation();
-    triggerOpen();
+    onOpen();
   };
 
   return (
     <motion.div 
       className="welcome-overlay"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.05, transition: { duration: 1.2, ease: "easeInOut" } }}
-      onClick={handleOpenClick}
+      exit={{ opacity: 0, scale: 1.04, transition: { duration: 1.1, ease: "easeInOut" } }}
     >
-      {/* Background Muted Video */}
-      <video 
-        src="/assets/decorations/opening-video.mp4"
-        className="welcome-bg-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-      ></video>
+      {/* Background Atmosphere & Subtle Geometric Pattern */}
+      <div className="mandapam-backdrop-glow"></div>
+      <div className="mandapam-kolam-pattern"></div>
 
-      {/* Dark Glass Backdrop Layer */}
-      <div className="welcome-video-backdrop"></div>
+      {/* 1. Overhead Entrance Thoranam with Mango Leaves & White Jasmine */}
+      <div className="entrance-thoranam-container">
+        <Thoranam />
+        <WhiteJasmineGarland variant="arch" showBells={true} />
+      </div>
 
-      {/* Invitation Card Emerging Directly Out of Video */}
+      {/* Hanging Vertical White Jasmine Strands on both sides */}
+      <div className="entrance-garland-left">
+        <WhiteJasmineGarland variant="vertical-strand" showBells={true} />
+      </div>
+      <div className="entrance-garland-right">
+        <WhiteJasmineGarland variant="vertical-strand" showBells={true} />
+      </div>
+
+      {/* 2. Traditional Banana Trees (Arati Chettu) Flanking Entrance */}
+      <BananaLeafPillar side="left" variant="tree" />
+      <BananaLeafPillar side="right" variant="tree" />
+
+      {/* 3. Auspicious Traditional Wedding Invitation Card */}
       <motion.div 
-        className="welcome-card welcome-card-emerged"
-        initial={{ opacity: 0, scale: 0.7, y: 50, filter: 'blur(8px)' }}
-        animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        className="welcome-card traditional-mandapam-card"
+        initial={{ opacity: 0, scale: 0.85, y: 40 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
-        {/* Traditional Auspicious Ganesha Emblem */}
-        <motion.div 
-          className="auspicious-emblem"
-          initial={{ scale: 0.7, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+        {/* Sacred English Blessing Header */}
+        <motion.p 
+          className="invocation-text font-serif"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <svg className="ganesha-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" stroke="#d4af37" strokeWidth="1.5" strokeDasharray="4 2" />
-            <circle cx="50" cy="50" r="40" stroke="#c5a059" strokeWidth="1" />
-            <path d="M50 18 C52 25, 62 25, 62 32 C62 40, 48 40, 48 48 C48 56, 56 60, 54 68 C52 74, 44 76, 44 72 C44 68, 50 64, 48 58 C46 52, 38 48, 38 38 C38 28, 48 25, 50 18 Z" fill="url(#gold-grad)" />
-            <path d="M42 35 Q50 30 58 35 Q50 42 42 35 Z" fill="#6e1a24" />
-            <circle cx="50" cy="27" r="3" fill="#d4af37" />
-            <defs>
-              <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#d4af37" />
-                <stop offset="50%" stopColor="#f5e9d3" />
-                <stop offset="100%" stopColor="#8f743b" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p 
-          className="journey-tagline font-script"
-          initial={{ y: -10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          {weddingData.couple.tagline}
-        </motion.p>
-
-        {/* Auspicious Telugu Invocation */}
-        <motion.p 
-          className="invocation-text"
-          initial={{ y: 15, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
-          ॥ శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు ॥
+          Two Souls, Bound by Sacred Vows
         </motion.p>
 
         <motion.p 
-          className="sub-invocation"
+          className="sub-invocation font-serif"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
-          Srirastu Subhamastu Avighnamastu
+          With the Divine Blessings of Elders & Almighty
         </motion.p>
 
-        <div className="title-divider">
-          <span className="line"></span>
-          <Sparkles className="sparkle-icon" size={16} />
-          <span className="line"></span>
+        <div className="mandapam-divider">
+          <span className="mandapam-divider-line"></span>
+          <span className="mandapam-motif">✦ ॐ ✦</span>
+          <span className="mandapam-divider-line"></span>
         </div>
 
         {/* Invitation Subtitle */}
-        <motion.h3 
-          className="invitation-tag"
+        <motion.div 
+          className="invitation-tag-wrapper"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          WEDDING INVITATION
-        </motion.h3>
-
-        {/* Bride & Groom Names */}
-        <motion.div 
-          className="couple-names-wrapper"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, delay: 1.0 }}
-        >
-          <h1 className="bride-name gold-text-bright">{bride.name}</h1>
-          <div className="ampersand-wrapper">
-            <span className="ampersand font-script">&</span>
-          </div>
-          <h1 className="groom-name gold-text-bright">{groom.name}</h1>
+          <span className="invitation-tag font-serif">WEDDING INVITATION</span>
         </motion.div>
 
-        {/* Open Button (Manual tap or 3-second auto-open) */}
+        {/* Couple Names */}
+        <motion.div 
+          className="couple-names-wrapper"
+          initial={{ y: 15, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.7 }}
+        >
+          <div className="person-display bride-display">
+            <span className="person-prefix font-serif">{bride.title}</span>
+            <h1 className="bride-name gold-text-bright font-serif">{bride.name}</h1>
+          </div>
+
+          <div className="traditional-knot-symbol">
+            <span className="knot-flourish">꧁</span>
+            <span className="knot-weds font-serif">weds</span>
+            <span className="knot-flourish">꧂</span>
+          </div>
+
+          <div className="person-display groom-display">
+            <span className="person-prefix font-serif">{groom.title}</span>
+            <h1 className="groom-name gold-text-bright font-serif">{groom.name}</h1>
+          </div>
+        </motion.div>
+
+        {/* Open Invitation Button */}
         <motion.div 
           className="open-button-container"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <button className="btn-gold open-invitation-btn" onClick={handleOpenClick}>
-            <Heart size={18} fill="currentColor" className="heart-pulse" />
+          <button className="btn-gold open-invitation-btn mandapam-enter-btn" onClick={handleOpenClick}>
+            <Sparkles size={18} className="sparkle-pulse" />
             <span>OPEN INVITATION</span>
           </button>
+          <p className="tap-hint font-serif">✨ Touch to open the wedding invitation ✨</p>
         </motion.div>
       </motion.div>
     </motion.div>

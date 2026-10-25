@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import weddingData from '../data/weddingData';
+import WhiteJasmineGarland from './WhiteJasmineGarland';
+import BananaLeafPillar from './BananaLeafPillar';
 import './Closing.css';
 
 const Closing = () => {
@@ -9,6 +11,9 @@ const Closing = () => {
 
   return (
     <footer className="closing-section">
+      {/* Decorative Jasmine Arch */}
+      <WhiteJasmineGarland variant="arch" showBells={true} />
+
       <motion.div 
         className="closing-card"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -16,31 +21,34 @@ const Closing = () => {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
+        {/* Flanking Banana Tree Accents */}
+        <div className="closing-banana-flank left">
+          <BananaLeafPillar side="left" variant="tree" />
+        </div>
+        <div className="closing-banana-flank right">
+          <BananaLeafPillar side="right" variant="tree" />
+        </div>
+
         <div className="closing-gold-frame">
           <div className="closing-corner top-l"></div>
           <div className="closing-corner top-r"></div>
           <div className="closing-corner bottom-l"></div>
           <div className="closing-corner bottom-r"></div>
 
-          {/* Mandap / Lotus Symbol */}
-          <div className="closing-symbol font-serif">
-            🪷
-          </div>
+          <p className="closing-blessing font-serif">
+            With Sacred Vows & Eternal Love
+          </p>
 
           <h2 className="closing-message gold-text-bright font-serif">
-            We can't wait to celebrate this beautiful day with you
+            We earnestly seek your gracious presence, blessings & love as we embark on this sacred journey
           </h2>
 
-          <div className="heart-pulse-container">
-            <Heart className="heart-icon-closing" size={30} fill="#d4af37" color="#d4af37" />
-          </div>
-
           <div className="couple-closing-name-block">
-            <h3 className="closing-name-line">{bride.name}</h3>
+            <h3 className="closing-name-line font-serif">{bride.name}</h3>
             <div className="closing-amp-wrapper">
-              <span className="and-symbol-closing">&</span>
+              <span className="and-symbol-closing font-serif">weds</span>
             </div>
-            <h3 className="closing-name-line">{groom.name}</h3>
+            <h3 className="closing-name-line font-serif">{groom.name}</h3>
           </div>
 
           <div className="closing-divider">
@@ -50,11 +58,14 @@ const Closing = () => {
           </div>
 
           <p className="closing-footer-date font-serif">
-            {weddingData.wedding.displayDate} • {weddingData.venue.city}
+            Reception: 25th Nov 2026 • Sumuhurtham: 26th Nov 2026
+          </p>
+          <p className="closing-venue-line font-serif">
+            MR Convention, Podalakur, Andhra Pradesh
           </p>
 
-          <p className="copyright-notice">
-            Designed with devotion for Keerthi Priya & Venkata Ramanaiah Wedding
+          <p className="copyright-notice font-serif">
+            Auspicious Wedding of {bride.name} & {groom.name}
           </p>
         </div>
       </motion.div>

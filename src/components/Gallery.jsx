@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Image as ImageIcon } from 'lucide-react';
 import weddingData from '../data/weddingData';
+import WhiteJasmineGarland from './WhiteJasmineGarland';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -9,6 +10,8 @@ const Gallery = () => {
 
   return (
     <section id="gallery" className="gallery-section">
+      {/* Decorative Jasmine Arch */}
+      <WhiteJasmineGarland variant="arch" showBells={true} />
       <motion.div 
         className="section-header"
         initial={{ opacity: 0, y: 20 }}
@@ -41,7 +44,7 @@ const Gallery = () => {
             <div className="gallery-image-wrapper">
               <img 
                 src={item.url} 
-                alt={item.caption || `Keerthi Priya & Venkata Ramanaiah ${index + 1}`} 
+                alt={item.caption || `${weddingData.couple.bride.name} & ${weddingData.couple.groom.name} ${index + 1}`} 
                 className="gallery-image"
                 loading="lazy"
               />

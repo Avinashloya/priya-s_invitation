@@ -13,6 +13,11 @@
   position: absolute;
   top: -40px;
   animation: fallAndSway linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.petal.deepam-spark {
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
 }
 
 @keyframes fallAndSway {
@@ -21,13 +26,13 @@
     opacity: 0;
   }
   12% {
-    opacity: 0.85;
+    opacity: 0.95;
   }
   50% {
     transform: translateY(50vh) rotate(180deg) translateX(30px);
   }
   88% {
-    opacity: 0.75;
+    opacity: 0.85;
   }
   100% {
     transform: translateY(105vh) rotate(360deg) translateX(-25px);

@@ -1,15 +1,17 @@
 import React from 'react';
 import './FallingPetals.css';
 
+/**
+ * Ambient White Jasmine (Mallepulu) Flowers & Buds
+ */
 const FallingPetals = () => {
-  // Generate 18 random ambient petals & gold sparkles
-  const petals = Array.from({ length: 18 }).map((_, i) => ({
+  const petals = Array.from({ length: 20 }).map((_, i) => ({
     id: i,
     left: `${Math.random() * 92 + 4}%`,
-    animationDelay: `${Math.random() * 7}s`,
+    animationDelay: `${Math.random() * 8}s`,
     animationDuration: `${7 + Math.random() * 7}s`,
     size: `${14 + Math.random() * 12}px`,
-    type: i % 3 === 0 ? 'rose' : i % 3 === 1 ? 'marigold' : 'sparkle'
+    type: i % 2 === 0 ? 'jasmine' : 'jasmine-bud'
   }));
 
   return (
@@ -26,20 +28,32 @@ const FallingPetals = () => {
             height: p.size
           }}
         >
-          {p.type === 'rose' && (
+          {/* Pure White Jasmine Flower (5 Petals with Golden Center) */}
+          {p.type === 'jasmine' && (
             <svg viewBox="0 0 30 30" fill="none">
-              <path d="M15 2 C22 2, 28 8, 28 15 C28 22, 22 28, 15 28 C8 28, 2 22, 2 15 C2 8, 8 2, 15 2 Z" fill="#b81d33" opacity="0.75" />
+              <defs>
+                <radialGradient id={`j-grad-${p.id}`} cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="70%" stopColor="#fdfcf7" />
+                  <stop offset="100%" stopColor="#ebe4d3" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="15" cy="15" rx="3.5" ry="8" fill={`url(#j-grad-${p.id})`} />
+              <ellipse cx="15" cy="15" rx="3.5" ry="8" fill={`url(#j-grad-${p.id})`} transform="rotate(72 15 15)" />
+              <ellipse cx="15" cy="15" rx="3.5" ry="8" fill={`url(#j-grad-${p.id})`} transform="rotate(144 15 15)" />
+              <ellipse cx="15" cy="15" rx="3.5" ry="8" fill={`url(#j-grad-${p.id})`} transform="rotate(216 15 15)" />
+              <ellipse cx="15" cy="15" rx="3.5" ry="8" fill={`url(#j-grad-${p.id})`} transform="rotate(288 15 15)" />
+              <circle cx="15" cy="15" r="2.2" fill="#ffd54f" />
+              <circle cx="15" cy="15" r="1.2" fill="#e65100" />
             </svg>
           )}
-          {p.type === 'marigold' && (
-            <svg viewBox="0 0 30 30" fill="none">
-              <circle cx="15" cy="15" r="12" fill="#f39c12" opacity="0.8" />
-              <circle cx="15" cy="15" r="8" fill="#e67e22" opacity="0.9" />
-            </svg>
-          )}
-          {p.type === 'sparkle' && (
-            <svg viewBox="0 0 24 24" fill="#D6B978" opacity="0.85">
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+
+          {/* White Jasmine Bud */}
+          {p.type === 'jasmine-bud' && (
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2 C8 7, 7 14, 12 22 C17 14, 16 7, 12 2 Z" fill="#ffffff" />
+              <path d="M12 2 C10 8, 10 14, 12 22" stroke="#e0d6c0" strokeWidth="0.8" />
+              <path d="M10 18 Q12 23 14 18" fill="#43a047" opacity="0.8" />
             </svg>
           )}
         </div>

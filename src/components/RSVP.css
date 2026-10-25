@@ -1,75 +1,86 @@
 .rsvp-section {
-  padding: 50px 16px;
+  padding: 60px 16px;
+  position: relative;
 }
 
 .rsvp-card {
-  background: var(--ivory);
-  border: 2px solid var(--gold);
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1.5px solid rgba(214, 185, 120, 0.6);
+  border-radius: 16px;
   padding: 32px 20px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 20px rgba(110, 26, 36, 0.06);
   text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.rsvp-diya-header {
+  display: flex;
+  justify-content: center;
+  margin-top: -12px;
+  margin-bottom: 12px;
 }
 
 .rsvp-welcome-text {
   font-size: 1.05rem;
-  color: var(--text-dark);
+  color: #4a3830;
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
-.extra-buttons-row {
+.rsvp-action-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
-  justify-content: center;
+  align-items: center;
 }
 
-.whatsapp-rsvp-btn {
-  flex: 1;
-  min-width: 180px;
-  background: #25d366;
+.rsvp-whatsapp-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #ffffff;
   border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-family: var(--font-heading);
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.whatsapp-rsvp-btn:hover {
+.rsvp-whatsapp-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
-.share-btn {
-  flex: 1;
-  min-width: 180px;
-  background: var(--cream);
-  color: var(--dark-gold);
-  border: 1px solid var(--gold);
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
+.rsvp-share-btn {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: background 0.2s ease;
+  background: #fffdf8;
+  color: #8f743b;
+  border: 1.5px solid #d4af37;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.share-btn:hover {
-  background: var(--gold-light);
+.rsvp-share-btn:hover {
+  background: #fff8eb;
+  border-color: #b89752;
+  color: #634811;
 }

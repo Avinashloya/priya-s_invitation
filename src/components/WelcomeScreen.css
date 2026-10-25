@@ -1,3 +1,5 @@
+/* Grand Traditional Mandapam Entrance Welcome Screen */
+
 .welcome-overlay {
   position: fixed;
   top: 0;
@@ -5,237 +7,281 @@
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background-color: #0d0809;
+  background-color: #1a080c;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  padding: 16px;
   overflow: hidden;
 }
 
-.invitation-stage-wrapper {
+/* Atmospheric Temple Deep Maroon Radial Glow */
+.mandapam-backdrop-glow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* Background Muted Video */
-.welcome-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(255, 170, 50, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(214, 185, 120, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(214, 185, 120, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(110, 26, 36, 0.75) 0%, #150508 100%);
+  pointer-events: none;
   z-index: 1;
+}
+
+/* Traditional Subtle Golden Kolam / Rangoli Floor Geometry */
+.mandapam-kolam-pattern {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 180px;
+  background: radial-gradient(ellipse at center, rgba(214, 185, 120, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
   pointer-events: none;
+  z-index: 2;
 }
 
-@media (min-width: 600px) {
-  .welcome-bg-video {
-    max-width: 520px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 2px solid var(--gold);
-    border-right: 2px solid var(--gold);
-  }
-}
-
-/* Backdrop Mask for legibility */
-.welcome-video-backdrop {
+/* Overhead Thoranam & White Jasmine Garland Container */
+.entrance-thoranam-container {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 40%, rgba(30, 8, 12, 0.35) 0%, rgba(15, 3, 5, 0.78) 100%);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  z-index: 2;
+  max-width: 520px;
+  z-index: 20;
   pointer-events: none;
 }
 
-/* Merged & Emerged Card Styling */
-.welcome-card-emerged {
-  position: relative;
-  z-index: 3;
-  width: 92%;
-  max-width: 440px;
-  background: rgba(252, 249, 242, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 2px solid var(--gold);
-  border-radius: 14px;
-  padding: 36px 22px;
-  text-align: center;
-  box-shadow: 
-    0 0 50px rgba(0, 0, 0, 0.65),
-    0 20px 40px rgba(110, 26, 36, 0.3),
-    inset 0 0 30px rgba(214, 185, 120, 0.3);
-  transform-origin: center center;
-}
-
-.welcome-card-emerged::before {
-  content: '';
+.entrance-garland-left {
   position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  bottom: 6px;
-  border: 1px dashed rgba(214, 185, 120, 0.6);
+  top: 15px;
+  left: 12px;
+  z-index: 22;
   pointer-events: none;
-  border-radius: 10px;
 }
 
-.auspicious-emblem {
-  width: 76px;
-  height: 76px;
-  margin: 0 auto 12px auto;
+.entrance-garland-right {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  z-index: 22;
+  pointer-events: none;
 }
 
-.journey-tagline {
-  font-size: 1.8rem;
-  color: var(--maroon);
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.ganesha-svg {
+/* Traditional Auspicious Card */
+.welcome-card.traditional-mandapam-card {
+  position: relative;
+  z-index: 18;
   width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 4px 8px rgba(197, 160, 89, 0.35));
+  max-width: 420px;
+  max-height: 92vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 34px 24px 28px 24px;
+  text-align: center;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(255, 230, 180, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #fffbf2 0%, #fdf8ee 50%, #f7ecd5 100%);
+  border: 3px double #d4af37;
+  border-radius: 18px;
+  box-shadow: 
+    0 0 0 5px rgba(214, 185, 120, 0.25),
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 25px rgba(214, 185, 120, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 }
 
+.welcome-card.traditional-mandapam-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Invocations */
 .invocation-text {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  color: var(--maroon);
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.55rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
+  color: #7a1522;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  line-height: 1.3;
 }
 
 .sub-invocation {
-  font-family: var(--font-serif);
-  font-size: 0.85rem;
-  color: var(--dark-gold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8f743b;
+  margin-bottom: 8px;
 }
 
-.title-divider {
+/* Mandapam Divider */
+.mandapam-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin: 14px 0;
+  width: 80%;
+  margin: 6px 0 14px 0;
 }
 
-.title-divider .line {
+.mandapam-divider-line {
+  flex: 1;
   height: 1px;
-  width: 50px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
 }
 
-.sparkle-icon {
-  color: var(--gold);
+.mandapam-motif {
+  font-size: 0.95rem;
+  color: #c5a059;
+  letter-spacing: 2px;
+}
+
+/* Invitation Tag */
+.invitation-tag-wrapper {
+  margin-bottom: 12px;
 }
 
 .invitation-tag {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 18px;
+  display: inline-block;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #8b1e2b;
+  background: rgba(214, 185, 120, 0.22);
+  padding: 4px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(214, 185, 120, 0.6);
 }
 
+/* Couple Names */
 .couple-names-wrapper {
+  width: 100%;
   margin-bottom: 20px;
+  padding: 12px 0;
+  border-top: 1px dashed rgba(214, 185, 120, 0.5);
+  border-bottom: 1px dashed rgba(214, 185, 120, 0.5);
 }
 
-.bride-name, .groom-name {
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: 2.2rem;
-  font-weight: 600 !important;
-  color: #7A1F3D !important;
-  -webkit-text-fill-color: #7A1F3D !important;
-  line-height: 1.25;
-  letter-spacing: 1.5px;
-}
-
-.ampersand-wrapper {
+.person-display {
   margin: 4px 0;
 }
 
-.ampersand {
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: 2.2rem;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #2C221E !important;
-  line-height: 1;
+.person-prefix {
+  display: block;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #8a6845;
+  margin-bottom: -2px;
 }
 
+.bride-name, .groom-name {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #4a1017;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.gold-text-bright {
+  background: linear-gradient(135deg, #7a1522 0%, #b82d3e 40%, #5c101a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Traditional Knot Symbol */
+.traditional-knot-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.knot-flourish {
+  color: #c5a059;
+  font-size: 1.2rem;
+}
+
+.knot-weds {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #8b1e2b;
+}
+
+/* Button & Tap Hint */
 .open-button-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-top: 8px;
 }
 
-.open-invitation-btn {
-  position: relative;
-  animation: pulseGlow 2.5s infinite ease-in-out;
-  padding: 14px 34px;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
-.auto-timer-badge {
-  background: rgba(74, 16, 23, 0.85);
-  color: #D6B978;
-  font-size: 0.78rem;
-  font-weight: 700;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: inline-flex;
+.btn-gold.mandapam-enter-btn {
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #D6B978;
-  margin-left: 6px;
-}
-
-.auto-open-subtext {
-  font-family: var(--font-serif);
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-.highlight-sec {
-  color: var(--maroon);
+  gap: 10px;
+  padding: 14px 20px;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.35rem;
   font-weight: 700;
+  color: #3b0910;
+  background: linear-gradient(135deg, #ffd700 0%, #f5d77f 35%, #d4af37 70%, #ffd700 100%);
+  border: 1px solid #ffe082;
+  border-radius: 30px;
+  box-shadow: 
+    0 8px 25px rgba(214, 185, 120, 0.5),
+    0 3px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.heart-pulse {
-  animation: heartPulse 1.2s ease-in-out infinite;
+.btn-gold.mandapam-enter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 30px rgba(255, 215, 0, 0.65),
+    0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes heartPulse {
-  0%, 100% {
-    transform: scale(1);
+.sparkle-pulse {
+  animation: sparkleRotate 3s linear infinite;
+}
+
+@keyframes sparkleRotate {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+.tap-hint {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8f743b;
+}
+
+/* Mobile Screen Adjustments */
+@media (max-width: 480px) {
+  .welcome-card.traditional-mandapam-card {
+    padding: 26px 18px 22px 18px;
+    max-width: 95%;
   }
-  50% {
-    transform: scale(1.25);
+  .bride-name, .groom-name {
+    font-size: 2rem;
   }
 }

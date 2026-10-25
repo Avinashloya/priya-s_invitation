@@ -1,89 +1,143 @@
+/* Sacred Mandapam Hero Section Styles */
+
 .hero-section {
-  padding: 85px 16px 45px 16px;
+  padding: 80px 16px 45px 16px;
   position: relative;
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(255, 235, 180, 0.45) 0%, transparent 60%),
+    linear-gradient(180deg, #fffcf5 0%, #faf3e6 100%);
 }
 
-.invitation-card-container {
+.hero-entrance-thoranam {
+  position: absolute;
+  top: 55px;
+  left: 0;
   width: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
+.hero-mandapam-frame {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  padding: 40px 22px 30px 22px;
+  box-shadow: 
+    0 0 0 6px rgba(214, 185, 120, 0.22),
+    0 15px 45px rgba(110, 26, 36, 0.08),
+    inset 0 0 35px rgba(214, 185, 120, 0.15);
+  margin-top: 15px;
+}
+
+/* Sacred Telugu and Sanskrit Blessing Header */
 .hero-sacred-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
+  gap: 4px;
 }
 
 .om-symbol {
-  font-size: 0.98rem;
-  color: var(--maroon);
+  display: block;
+  font-size: 1.15rem;
+  color: #7a1522;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
-.solicit-text {
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  color: var(--text-dark);
+.hero-sub-blessing {
+  font-size: 0.82rem;
+  color: #8f743b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.hero-cordial-invite {
+  font-size: 0.95rem;
+  color: #4e3d36;
   text-align: center;
   line-height: 1.7;
-  margin: 18px 0 26px 0;
   font-style: italic;
+  margin: 12px auto 20px auto;
+  max-width: 90%;
 }
 
+/* Bride & Groom Display */
 .person-block {
   text-align: center;
-  margin: 14px 0;
+  margin: 12px 0;
 }
 
 .person-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 0.95rem;
-  color: var(--dark-gold);
+  color: #8f743b;
   letter-spacing: 1.5px;
   font-weight: 600;
 }
 
 .person-name {
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 2.2rem;
-  font-weight: 600 !important;
-  color: #7A1F3D !important;
-  -webkit-text-fill-color: #7A1F3D !important;
+  font-size: 2.3rem;
+  font-weight: 700 !important;
+  color: #5c101a !important;
   letter-spacing: 1.5px;
-  margin: 4px 0;
+  margin: 4px 0 2px 0;
 }
 
-.person-qual {
-  font-family: var(--font-label);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+.family-lineage-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: #6d5b52;
+  font-style: italic;
 }
 
+/* Knot */
 .wedding-knot {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin: 14px 0;
+  gap: 12px;
+  margin: 10px 0;
 }
 
 .knot-line {
   height: 1px;
-  width: 65px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  flex: 1;
+  max-width: 60px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.knot-center-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff8eb;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(214, 185, 120, 0.6);
+}
+
+.knot-icon {
+  font-size: 0.9rem;
 }
 
 .weds-text {
-  font-size: 2.8rem;
-  color: var(--maroon);
-  line-height: 1;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #7a1522;
 }
 
+/* Wedding Artwork Image */
 .illustration-wrapper {
   position: relative;
-  margin: 28px 0;
-  border-radius: 8px;
+  margin: 24px 0 28px 0;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(110, 26, 36, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--gold);
@@ -98,44 +152,133 @@
 }
 
 .illustration-wrapper:hover .hero-wedding-artwork {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
-.hero-event-summary {
-  background: var(--cream);
-  border: 1px solid var(--gold-border);
+.artwork-gold-frame {
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(214, 185, 120, 0.6);
   border-radius: 8px;
-  padding: 18px;
-  margin-top: 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  box-shadow: inset 0 0 15px rgba(214, 185, 120, 0.12);
+  pointer-events: none;
+}
+
+/* Event Summaries */
+.hero-event-summary {
+  background: #fffdf8;
+  border: 1px solid rgba(214, 185, 120, 0.45);
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin-top: 16px;
+  position: relative;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hero-event-summary.reception-highlight {
+  border-left: 4px solid #b82d3e;
+  background: linear-gradient(135deg, #fffaf4 0%, #ffffff 100%);
+}
+
+.hero-event-summary.sumuhurtham-highlight {
+  border-left: 4px solid #d4af37;
+  background: linear-gradient(135deg, #fffcf5 0%, #fff8eb 100%);
+  box-shadow: 0 4px 18px rgba(214, 185, 120, 0.22);
+}
+
+.hero-summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #8b1e2b;
+  background: rgba(214, 185, 120, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 .summary-item {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
 }
 
 .summary-icon {
-  color: var(--maroon);
+  color: #b82d3e;
   flex-shrink: 0;
+  margin-top: 3px;
 }
 
 .summary-label {
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  text-transform: uppercase;
   display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8f743b;
 }
 
 .summary-value {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #2c221e;
+  line-height: 1.3;
+}
+
+.summary-subtext {
+  display: block;
+  font-size: 0.75rem;
+  color: #685950;
+  margin-top: 2px;
+}
+
+/* Action Button */
+.hero-action-container {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.btn-gold.hero-map-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #3b0910;
+  background: linear-gradient(135deg, #ffd700 0%, #f5d77f 40%, #d4af37 100%);
+  border: 1px solid #ffe082;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(214, 185, 120, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-gold.hero-map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214, 185, 120, 0.55);
+}
+
+@media (max-width: 480px) {
+  .person-name {
+    font-size: 1.95rem;
+  }
+  .hero-mandapam-frame {
+    padding: 30px 14px 22px 14px;
+  }
 }

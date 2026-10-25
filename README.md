@@ -2,7 +2,7 @@
 
 A luxury, interactive, production-ready Indian Wedding Invitation website built with **React**, **Vite**, **Framer Motion**, and custom **CSS**.
 
-Designed specifically for the sacred union of **Chi. La. Sow. Keerthi Priya B.Tech.** and **Chi. Venkata Ramanaiah B.Tech.**.
+Designed specifically for the sacred union of **Chi. La. Sow. Mohana Priya** and **Chi. Likhith Varma**.
 
 ---
 
@@ -60,8 +60,8 @@ src/data/weddingData.js
 ```js
 bride: {
   title: "Chi. La. Sow.",
-  name: "Keerthi Priya",
-  qualification: "B.Tech."
+  name: "Mohana Priya",
+  qualification: ""
 }
 ```
 
@@ -70,8 +70,8 @@ bride: {
 ```js
 groom: {
   title: "Chi.",
-  name: "Venkata Ramanaiah",
-  qualification: "B.Tech."
+  name: "Likhith Varma",
+  qualification: ""
 }
 ```
 
@@ -79,14 +79,14 @@ groom: {
 
 ```js
 brideParents: {
-  father: "Sri Thalluri Jamalaiah",
-  mother: "Smt. Ganga",
-  location: "Tiruvuru, N.T.R. District"
+  father: "Late Sri Konduru Ramraju",
+  mother: "Smt. Vijaya",
+  location: "Polluru"
 },
 groomParents: {
-  father: "Sri Erla Rama Rao",
-  mother: "Smt. Lakshmi",
-  location: "Hanuman Junction"
+  father: "Sri Manohar Raju",
+  mother: "Smt. Venkata Ramanamma",
+  location: "Duggunta Rajupalem"
 }
 ```
 
@@ -94,12 +94,12 @@ groomParents: {
 
 ```js
 wedding: {
-  date: "2026-09-05", // YYYY-MM-DD
-  time: "23:05",       // HH:MM (24-hour format)
-  displayDate: "Saturday, 5th September 2026",
-  displayTime: "11:05 p.m.",
-  nakshatram: "Arudhra Nakshatram",
-  lagnam: "Vrishaba Lagnam"
+  date: "2026-11-26", // YYYY-MM-DD
+  time: "04:40",       // HH:MM (24-hour format)
+  displayDate: "Thursday, 26th November 2026",
+  displayTime: "4:40 AM – 4:44 AM",
+  nakshatram: "Mrugasira Nakshatram",
+  lagnam: "Tula Lagnam"
 }
 ```
 
@@ -107,13 +107,13 @@ wedding: {
 
 ```js
 venue: {
-  name: "R.K. Convention",
-  complex: "Ganapathi Complex",
-  address: "Beside H.P. Petrol Bunk, Eluru Road",
-  city: "Hanuman Junction",
+  name: "MR Convention",
+  complex: "Podalakur",
+  address: "Podalakur",
+  city: "Podalakur",
   state: "Andhra Pradesh",
   country: "India",
-  mapUrl: "https://maps.google.com/?q=R.K.+Convention+Ganapathi+Complex+Hanuman+Junction"
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=MR+Convention+Podalakur"
 }
 ```
 
@@ -123,20 +123,20 @@ Add your photo files to `public/assets/images/` and update `gallery` in `wedding
 
 ```js
 gallery: [
-  { url: "/assets/images/photo-1.jpg", caption: "Pre-Wedding Moments" },
-  { url: "/assets/images/photo-2.jpg", caption: "Forever & Always" },
-  { url: "/assets/images/photo-3.jpg", caption: "Sacred Mandap Setup" }
+  { url: "/assets/images/photo-1.jpg", caption: "Mohana Priya & Likhith Varma" },
+  { url: "/assets/images/photo-2.jpg", caption: "Sacred Garlands & Blessings" },
+  { url: "/assets/images/photo-3.jpg", caption: "A Journey of Togetherness & Joy" }
 ]
 ```
 
 ### 7. Replace Background Music
 
-Place your MP3 file in `public/assets/music/wedding.mp3` and update:
+Place your MP3 file in `public/assets/music/wedding-audio.mp3` and update:
 
 ```js
 music: {
   enabled: true,
-  file: "/assets/music/wedding.mp3"
+  file: "/assets/music/wedding-audio.mp3"
 }
 ```
 
@@ -145,7 +145,7 @@ music: {
 ```js
 whatsapp: {
   number: "919876543210", // Country code + phone number without + or spaces
-  message: "Namaste! Warmest congratulations to Keerthi Priya & Venkata Ramanaiah."
+  message: "Namaste! Warmest congratulations to Mohana Priya & Likhith Varma. I am delighted to accept your wedding invitation!"
 }
 ```
 

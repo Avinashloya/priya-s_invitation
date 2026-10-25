@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="nav-container">
         <a href="#hero" className="nav-logo gold-text" onClick={(e) => handleNavClick(e, '#hero')}>
           <Heart size={16} fill="#c5a059" color="#c5a059" />
-          <span>K & R</span>
+          <span>P &amp; L</span>
         </a>
 
         {/* Desktop / Tablet Navigation */}
